@@ -14,6 +14,9 @@ const getAllProjects = (req: Request, res: Response) => {
 };
 
 const addProject = (req: Request, res: Response) => {
+  const { id, projectName } = req.body;
+  console.log(id, projectName);
+
   res.status(StatusCodes.OK).json({
     msg: 'Adding project'
   });

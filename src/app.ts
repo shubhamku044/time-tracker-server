@@ -14,6 +14,12 @@ app.use('/', viewRouter);
 app.use('/api/v1/projects', projectRouter);
 app.use('/api/v1/users', userRouter);
 
+app.get('/health', (_: Request, res: Response) => {
+  res.status(200).json({
+    health: 'Up and running'
+  });
+});
+
 app.use('*', (req: Request, res: Response) => {
   res.status(404).json({
     msg: `Can't find the ${req.originalUrl} in this server`
